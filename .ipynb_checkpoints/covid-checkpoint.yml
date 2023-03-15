@@ -1,0 +1,16 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: hyobeom-seo-covid-test
+spec:
+  predictor:
+    tensorflow:
+      resources:
+        limits:
+          cpu: '1'
+          memory: 2000Mi
+        requests:
+          cpu: '1'
+          memory: 1000Mi
+      runtimeVersion: 2.11.0
+      storageUri: pvc://hyobeom-seo-volume/Covid19-X-Rays/covid-4
